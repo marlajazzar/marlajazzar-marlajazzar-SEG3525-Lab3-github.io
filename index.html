@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+    <h1 class = "title">Pacito Grocery Store</h1>
+</head>
+
+<body>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+
+<!-- Inspiré par w3school - https://www.w3schools.com/howto/howto_css_breadcrumbs.asp -->
+<ul class="tab">
+    <li> <a class="tablinks" onclick="openInfo(event, 'Client')">Client </a> </li>
+    <li> <a class="tablinks" onclick="openInfo(event, 'Products')">Products </a> </li>
+    <li> <a class="tablinks" onclick="openInfo(event, 'Cart')">Cart </a> </li>
+</ul>
+
+<!--
+<li> <a class="tablinks" onclick="openInfo(event, 'Client')">Client </a> </li>
+<button class="tablinks" onclick="openInfo(event, 'Products')">Products</button>
+<button class="tablinks" onclick="openInfo(event, 'Cart')">Cart</button>
+-->
+
+<!-- Tab content -->
+<div id="Client" class="tabcontent">
+    <h3>Client Information</h3>
+    <p>Tell us a bit about you.</p>
+    Choose a Category:
+    <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')">
+        <option value=""></option>
+        <option value="Vegetarian_Org">Vegetarian - Organic</option>
+        <option value="Vegetarian_NonOrg">Vegetarian - Non-Organic</option>
+        <option value="GlutenFree_Org">Gluten Free - Organic</option>
+        <option value=GlutenFree_NonOrg">GlutenFree - Non-Organic</option>
+        <option value="Vegetarian_GlutenFree_Org">Vegetarian & GlutenFree - Organic </option>
+        <option value="Vegetarian_GlutenFree_NonOrg">Vegetarian & Gluten Free- Non-Organic</option>
+        <option value="None">None</option>
+    </select>
+</div>
+
+
+<div id="Products" class="tabcontent">
+
+    <p>If you would like to know about all the items our store Pacito has in stock, please click on each category of your preference.</p>
+    <p> If you would only like to see your target items, please view section "Your targeted products" below. </p>
+
+
+    <!-- Inspiré par w3school - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_accordion -->
+    <button class="accordion">Vegetables</button>
+    <div class="panel">
+        <img src ="Broccoli.png">
+        <p>Broccoli $2.99 </p> <br>
+
+    </div>
+    <button class="accordion">Fruits</button>
+    <div class="panel">
+        <img src ="Apple.png">
+        <p>Honeycrisp Apple $1.11 </p>
+        <img src ="Banana.png">
+        <p>Organic Bananas, Bunch $1.99 </p>
+    </div>
+
+    <button class="accordion">Meat </button>
+    <div class="panel">
+        <img src ="Salmon.png">
+        <p>Pacific Salmon Fillets (567g) $8.99 </p>
+        <img src ="Chicken.png">
+        <p>Organic Chicken Bites (454g) $11.49 </p>
+        <img src ="Tuna.png">
+        <p>Clover Leaf, Solid White Tuna Albacore in Water $2.29 </p>
+    </div>
+
+    <button class="accordion">Pastry </button>
+    <div class="panel">
+        <img src ="Croissant.png">
+        <p>Mini Chocolate Croissants (423g) $0.75 </p>
+        <img src ="Pancake.png">
+        <p>Kinnikinnick, Gluten-Free Pancake & Waffle Mix $3.69 </p>
+    </div>
+
+    <button class="accordion">Frozen Food </button>
+    <div class="panel">
+        <img src ="Pizza.png">
+        <p>Ristorante, Pizza Pepperoni (320g) $5.49 </p>
+    </div>
+
+    <button class="accordion">Bread </button>
+    <div class="panel">
+        <img src ="Bread.png">
+        <p>ACE, Organic Whole Wheat Bread Sliced $4.69 </p>
+    </div>
+
+
+
+
+    <h3>Your targeted products</h3>
+    <p>We preselected products based on your restrictions.</p>
+    Choose items to buy:
+
+    <div id="displayProduct"></div>
+    <button id="addCart" type="button" class="block" onclick="selectedItems()">
+        Add selected items to cart.
+    </button>
+
+    <p>Once you selected all your items and you are ready to proceed to checkout, please click on the button above "Add selected items to cart"</p>
+
+</div>
+
+<div id="Cart" class="tabcontent">
+    <h3>Cart</h3>
+    <p>Here is your cart.</p>
+    <div id="displayCart"></div>
+</div>
+
+<script src="scripts/groceries.js"></script>
+<script src="scripts/main.js"></script>
+
+
+<h6>Site Web concu par Marla Jazzar</h6>
+</body>
+</html>
